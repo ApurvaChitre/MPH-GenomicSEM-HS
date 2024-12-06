@@ -42,7 +42,7 @@ G_{31} & G_{32} & G_{33}
 \end{pmatrix}
 $$
 
-Suppose $ \mathbf{y}_1, \mathbf{y}_2, \mathbf{y}_3 $ are phenotypes for cohorts 1-3. The variance of 
+Suppose $\mathbf{y}_1, \mathbf{y}_2, \mathbf{y}_3$ are phenotypes for cohorts 1-3. The variance of 
 
 $$
 \begin{pmatrix} 
