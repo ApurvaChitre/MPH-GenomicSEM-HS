@@ -42,7 +42,7 @@ G_{31} & G_{32} & G_{33}
 \end{pmatrix}
 $$
 
-Suppose \( \mathbf{y}_1, \mathbf{y}_2, \mathbf{y}_3 \) are phenotypes for cohorts 1-3. The variance of 
+Suppose $$ \mathbf{y}_1, \mathbf{y}_2, \mathbf{y}_3 $$ are phenotypes for cohorts 1-3. The variance of 
 
 $$
 \begin{pmatrix} 
@@ -64,8 +64,7 @@ $$
 G_{11}\sigma^2_{g1} & G_{12}\sigma_{g12} & G_{13}\sigma_{g13} \\
 G_{21}\sigma_{g21} & G_{22}\sigma^2_{g2} & G_{23}\sigma_{g23} \\
 G_{31}\sigma_{g31} & G_{32}\sigma_{g32} & G_{33}\sigma^2_{g3}
-\end{pmatrix}
-+
+\end{pmatrix} +
 \begin{pmatrix}
 I\sigma^2_{e1} & 0 & 0 \\
 0 & I\sigma^2_{e2} & 0 \\
