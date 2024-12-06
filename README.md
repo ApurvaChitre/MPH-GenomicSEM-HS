@@ -25,13 +25,13 @@ The objective is to compute two key matrices for use in the **Genomic SEM R pack
 
 This method overcomes limitations of **LDSC (Linkage Disequilibrium Score Regression)**, which provides out-of-bound estimates for HS rats.
 
-### Correspondence Highlights
+### Correspondence Highlights with the author of MPH, Jicai Jiang
 
 The function for the problem has not been hard-coded in MPH, but MPH does have a flexible (though requiring more data manipulation) approach to doing so. You can stack the phenotypes across cohorts as a single trait. By customizing genomic relationship matrices (blue ones), the estimation problem for multiple cohorts is reduced to a single-variate multi-component model.
 
 #### Variance-Covariance Model
 
-Suppose \( \mathbf{G} \) is a genomic relationship matrix across three cohorts (1-3):
+Suppose **G** is a genomic relationship matrix across three cohorts (1-3):
 
 \[
 \mathbf{G} =
@@ -59,68 +59,45 @@ I\sigma^2_{e1} & 0 & 0 \\
 \end{pmatrix}
 \]
 
-This can also be represented as a sum of the following components:
+This can be represented as the sum of:
 
-1. Genomic components (in **blue**):
+1. **Genomic Components (in blue):**
    \[
+   \mathbf{G} =
    \begin{pmatrix}
    G_{11} & G_{12} & G_{13} \\
    G_{21} & G_{22} & G_{23} \\
    G_{31} & G_{32} & G_{33}
    \end{pmatrix}
-   \begin{pmatrix}
-   \sigma^2_{g1} & 0 & 0 \\
-   0 & \sigma^2_{g2} & 0 \\
-   0 & 0 & \sigma^2_{g3}
-   \end{pmatrix}
    \]
 
-2. Residual components (in **red**):
+2. **Residual Components (in red):**
    \[
+   \text{Residuals} =
    \begin{pmatrix}
-   I & 0 & 0 \\
-   0 & 0 & 0 \\
-   0 & 0 & 0
+   I\sigma^2_{e1} & 0 & 0 \\
+   0 & I\sigma^2_{e2} & 0 \\
+   0 & 0 & I\sigma^2_{e3}
    \end{pmatrix}
-   \sigma^2_{e1}
-   +
-   \begin{pmatrix}
-   0 & 0 & 0 \\
-   0 & I & 0 \\
-   0 & 0 & 0
-   \end{pmatrix}
-   \sigma^2_{e2}
-   +
-   \begin{pmatrix}
-   0 & 0 & 0 \\
-   0 & 0 & 0 \\
-   0 & 0 & I
-   \end{pmatrix}
-   \sigma^2_{e3}
    \]
 
-Cross-cohort residual covariance matrices:
-
-\[
-\begin{pmatrix}
-0 & I_{2 \times 3} & 0 \\
-I_{3 \times 2} & 0 & 0 \\
-0 & 0 & 0
-\end{pmatrix}
-\sigma_{e12},
-\quad
-\begin{pmatrix}
-0 & 0 & I_{2 \times 2} \\
-0 & 0 & 0 \\
-I_{2 \times 2} & 0 & 0
-\end{pmatrix}
-\sigma_{e13},
-\quad
-\begin{pmatrix}
-0 & 0 & 0 \\
-0 & 0 & I_{3 \times 2} \\
-0 & I_{2 \times 3} & 0
-\end{pmatrix}
-\sigma_{e23}
-\]
-
+3. **Cross-Cohort Residual Covariance Matrices:**
+   \[
+   R_{12} = \sigma_{e12} \begin{pmatrix}
+   0 & I_{2 \times 3} & 0 \\
+   I_{3 \times 2} & 0 & 0 \\
+   0 & 0 & 0
+   \end{pmatrix},
+   \quad
+   R_{13} = \sigma_{e13} \begin{pmatrix}
+   0 & 0 & I_{2 \times 2} \\
+   0 & 0 & 0 \\
+   I_{2 \times 2} & 0 & 0
+   \end{pmatrix},
+   \quad
+   R_{23} = \sigma_{e23} \begin{pmatrix}
+   0 & 0 & 0 \\
+   0 & 0 & I_{3 \times 2} \\
+   0 & I_{2 \times 3} & 0
+   \end{pmatrix}
+   \]
