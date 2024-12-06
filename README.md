@@ -14,12 +14,12 @@ The goal is to estimate the genetic covariance matrix between the three traits, 
 The objective is to compute two key matrices for use in the **Genomic SEM R package**:
 
 1. **Matrix S (Genetic Covariance Matrix):**
-   - A symmetric \( n \times n \) matrix for \( n \) traits.
+   - A symmetric $n \times n$ matrix for $n$ traits.
    - **Diagonal**: Genetic variance for each trait.
    - **Off-diagonal**: Genetic covariances between traits.
 
 2. **Matrix V (Variance-Covariance Matrix of Parameter Estimates):**
-   - A symmetric \( \frac{n(n+1)}{2} \times \frac{n(n+1)}{2} \) matrix.
+   - A symmetric $\frac{n(n+1)}{2} \times \frac{n(n+1)}{2}$ matrix.
    - **Diagonal**: Squared standard errors of genetic variances.
    - **Off-diagonal**: Covariances of standard errors for genetic variances and covariances.
 
@@ -27,7 +27,7 @@ This method overcomes limitations of **LDSC (Linkage Disequilibrium Score Regres
 
 ### Correspondence Highlights with the author of MPH, Jicai Jiang
 
-The function for the problem has not been hard-coded in MPH, but MPH does have a flexible (though requiring more data manipulation) approach to doing so. You can stack the phenotypes across cohorts as a single trait. By customizing genomic relationship matrices (blue ones), the estimation problem for multiple cohorts is reduced to a single-variate multi-component model.
+The function for the problem has not been hard-coded in MPH, but MPH does have a flexible (though requiring more data manipulation) approach to doing so. You can stack the phenotypes across cohorts as a single trait. By customizing genomic relationship matrices, the estimation problem for multiple cohorts is reduced to a single-variate multi-component model.
 
 #### Variance-Covariance Model
 
@@ -42,7 +42,7 @@ G_{31} & G_{32} & G_{33}
 \end{pmatrix}
 $$
 
-Suppose $$ \mathbf{y}_1, \mathbf{y}_2, \mathbf{y}_3 $$ are phenotypes for cohorts 1-3. The variance of 
+Suppose $ \mathbf{y}_1, \mathbf{y}_2, \mathbf{y}_3 $ are phenotypes for cohorts 1-3. The variance of 
 
 $$
 \begin{pmatrix} 
@@ -74,7 +74,7 @@ $$
 
 This can be represented as the sum of:
 
-1. **Genomic Components (in blue):**
+1. **Genomic Components:**
    $$
    \mathbf{G} =
    \begin{pmatrix}
@@ -84,7 +84,7 @@ This can be represented as the sum of:
    \end{pmatrix}
    $$
 
-2. **Residual Components (in red):**
+2. **Residual Components:**
    $$
    \text{Residuals} =
    \begin{pmatrix}
