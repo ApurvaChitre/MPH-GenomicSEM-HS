@@ -62,3 +62,8 @@ The **variance-covariance matrix** for phenotypes measured across three cohorts 
 - **Matrix on the Right**: Represents residual variance ($\sigma^2_e$).
   - **Diagonal elements**: Residual variance for each cohort.
   - **Off-diagonal elements**: Zero, indicating no residual covariance between cohorts.
+
+This can be expanded as follows:
+![Expanded Variance-Covariance Matrix](expanded_formula.jpg)
+
+
