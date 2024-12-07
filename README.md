@@ -88,7 +88,7 @@ The whole analysis (for 3 cohorts) includes a few major steps:
 
 ### Detailed Steps and Commands
 
-After completing the main analysis steps, you can use the following detailed instructions to process and prepare files for MPH.
+Detailed instructions to process and prepare files for MPH.
 
 #### 1. Fill Missing Genotypes (Optional)
 Filling missing genotypes is optional and has little impact on the overall analysis.
