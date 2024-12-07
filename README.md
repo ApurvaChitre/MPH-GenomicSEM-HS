@@ -51,3 +51,14 @@ $$
 \end{pmatrix} 
 $$
 
+The **variance-covariance matrix** for phenotypes measured across three cohorts is as follows:
+
+![Variance-Covariance Matrix](formula.jpg)
+
+- **Matrix on the Left**: Represents genetic variance ($\sigma^2_g$) and genetic covariance between traits across cohorts.
+  - **Diagonal elements**: Genetic variance for each cohort.
+  - **Off-diagonal elements**: Genetic covariance between cohorts.
+
+- **Matrix on the Right**: Represents residual variance ($\sigma^2_e$).
+  - **Diagonal elements**: Residual variance for each cohort.
+  - **Off-diagonal elements**: Zero, indicating no residual covariance between cohorts.
