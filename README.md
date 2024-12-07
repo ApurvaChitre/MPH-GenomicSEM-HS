@@ -29,7 +29,6 @@ This method overcomes limitations of **LDSC (Linkage Disequilibrium Score Regres
 
 The function for the problem has not been hard-coded in MPH, but MPH does have a flexible (though requiring more data manipulation) approach to doing so. You can stack the phenotypes across cohorts as a single trait. By customizing genomic relationship matrices, the estimation problem for multiple cohorts is reduced to a single-variate multi-component model.
 
-#### Variance-Covariance Model
 
 Suppose **G** is a genomic relationship matrix across three cohorts (1-3):
 
@@ -42,7 +41,7 @@ G_{31} & G_{32} & G_{33}
 \end{pmatrix}
 $$
 
-Suppose $\mathbf{y}_1, \mathbf{y}_2, \mathbf{y}_3$ are phenotypes for cohorts 1-3. The variance of 
+Suppose $\mathbf{y}_1, \mathbf{y}_2, \mathbf{y}_3$ are phenotypes for cohorts 1-3. 
 
 $$
 \begin{pmatrix} 
@@ -52,72 +51,31 @@ $$
 \end{pmatrix} 
 $$
 
-is given by:
 
-$$
-\text{Var} \begin{pmatrix} 
+
+```math
+
+\text{Var} 
+\begin{pmatrix}
 \mathbf{y}_1 \\ 
 \mathbf{y}_2 \\ 
-\mathbf{y}_3 
-\end{pmatrix} =
-\begin{pmatrix}
-G_{11}\sigma^2_{g1} & G_{12}\sigma_{g12} & G_{13}\sigma_{g13} \\
-G_{21}\sigma_{g21} & G_{22}\sigma^2_{g2} & G_{23}\sigma_{g23} \\
-G_{31}\sigma_{g31} & G_{32}\sigma_{g32} & G_{33}\sigma^2_{g3}
-\end{pmatrix} +
-\begin{pmatrix}
-I\sigma^2_{e1} & 0 & 0 \\
-0 & I\sigma^2_{e2} & 0 \\
-0 & 0 & I\sigma^2_{e3}
+\mathbf{y}_3
 \end{pmatrix}
-$$
+=
+\left[
+\begin{bmatrix}
+\mathbf{G}_{11} \sigma^2_{g_{11}} & \mathbf{G}_{12} \sigma^2_{g_{12}} & \mathbf{G}_{13} \sigma^2_{g_{13}} \\
+\mathbf{G}_{21} \sigma^2_{g_{12}} & \mathbf{G}_{22} \sigma^2_{g_{22}} & \mathbf{G}_{23} \sigma^2_{g_{23}} \\
+\mathbf{G}_{31} \sigma^2_{g_{13}} & \mathbf{G}_{32} \sigma^2_{g_{23}} & \mathbf{G}_{33} \sigma^2_{g_{33}}
+\end{bmatrix}
+\right]
++
+\left[
+\begin{bmatrix}
+\mathbf{I} \sigma^2_{e_{1}} & \mathbf{0} & \mathbf{0} \\
+\mathbf{0} & \mathbf{I} \sigma^2_{e_{2}} & \mathbf{0} \\
+\mathbf{0} & \mathbf{0} & \mathbf{I} \sigma^2_{e_{3}}
+\end{bmatrix}
+\right]
+```
 
-This can be represented as the sum of:
-
-1. **Genomic Components:**
-   $$
-   \mathbf{G} =
-   \begin{pmatrix}
-   G_{11} & G_{12} & G_{13} \\
-   G_{21} & G_{22} & G_{23} \\
-   G_{31} & G_{32} & G_{33}
-   \end{pmatrix}
-   $$
-
-2. **Residual Components:**
-   $$
-   \text{Residuals} =
-   \begin{pmatrix}
-   I\sigma^2_{e1} & 0 & 0 \\
-   0 & I\sigma^2_{e2} & 0 \\
-   0 & 0 & I\sigma^2_{e3}
-   \end{pmatrix}
-   $$
-
-3. **Cross-Cohort Residual Covariance Matrices:**
-
-   $$
-   R_{12} = \sigma_{e12} \begin{pmatrix}
-   0 & I_{2 \times 3} & 0 \\
-   I_{3 \times 2} & 0 & 0 \\
-   0 & 0 & 0
-   \end{pmatrix},
-   $$
-
-   $$
-   R_{13} = \sigma_{e13} \begin{pmatrix}
-   0 & 0 & I_{2 \times 2} \\
-   0 & 0 & 0 \\
-   I_{2 \times 2} & 0 & 0
-   \end{pmatrix},
-   $$
-
-   $$
-   R_{23} = \sigma_{e23} \begin{pmatrix}
-   0 & 0 & 0 \\
-   0 & 0 & I_{3 \times 2} \\
-   0 & I_{2 \times 3} & 0
-   \end{pmatrix}
-   $$
-
-These equations define the genetic and residual covariance structures for multiple cohorts.
