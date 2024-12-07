@@ -51,31 +51,3 @@ $$
 \end{pmatrix} 
 $$
 
-
-
-```math
-
-\text{Var} 
-\begin{pmatrix}
-\mathbf{y}_1 \\ 
-\mathbf{y}_2 \\ 
-\mathbf{y}_3
-\end{pmatrix}
-=
-\left[
-\begin{bmatrix}
-\mathbf{G}_{11} \sigma^2_{g_{11}} & \mathbf{G}_{12} \sigma^2_{g_{12}} & \mathbf{G}_{13} \sigma^2_{g_{13}} \\
-\mathbf{G}_{21} \sigma^2_{g_{12}} & \mathbf{G}_{22} \sigma^2_{g_{22}} & \mathbf{G}_{23} \sigma^2_{g_{23}} \\
-\mathbf{G}_{31} \sigma^2_{g_{13}} & \mathbf{G}_{32} \sigma^2_{g_{23}} & \mathbf{G}_{33} \sigma^2_{g_{33}}
-\end{bmatrix}
-\right]
-+
-\left[
-\begin{bmatrix}
-\mathbf{I} \sigma^2_{e_{1}} & \mathbf{0} & \mathbf{0} \\
-\mathbf{0} & \mathbf{I} \sigma^2_{e_{2}} & \mathbf{0} \\
-\mathbf{0} & \mathbf{0} & \mathbf{I} \sigma^2_{e_{3}}
-\end{bmatrix}
-\right]
-```
-
