@@ -1,6 +1,6 @@
 # Genetic Covariance and Variance-Covariance Matrix Estimation for Heterogeneous Stock Rats
 
-This repository provides resources and scripts to estimate genetic covariance and variance-covariance matrices required for the **Genomic SEM R package**. The estimation is performed using **[MPH (Multi-component Penalized Heritability)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11093526/)**, customized specifically for research involving **Heterogeneous Stock (HS) rats**.
+This repository provides resources and scripts to estimate genetic covariance and variance-covariance matrices required for the **Genomic SEM R package**. The estimation is performed using **[MPH (MINQUE for Partitioning Heritability)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11093526/)**, customized specifically for research involving **Heterogeneous Stock (HS) rats**.
 
 ### Scope of the Code
 This repository is designed for cases where **traits are measured in different cohorts**, rather than in a single cohort with multiple traits. In this context, cohort does not refer to a phenotyping batch. Specifically:
@@ -77,7 +77,7 @@ The whole analysis (for 3 cohorts) includes a few major steps:
 2. **Create Custom Matrices**  
    - Generate the six genomic matrices and the 3  residual matrices (shown above).  
    - Only 3 residual matrices are required because MPH automatically includes a diagonal matrix as the sixth one.  
-   - Use the provided R scripts for manipulating GRMs ([GRM Input/Output Scripts](https://jiang18.github.io/mph/util/#grm-inputoutput)).  
+   - Use the provided R scripts for manipulating GRMs ([GRM Input/Output Scripts]([https://jiang18.github.io/mph/util/#grm-inputoutput](https://jiang18.github.io/mph/scripts/#grm-inputoutput))).  
    - This step should be quick if the total number of rats across cohorts is around 10k.
 
 3. **List Custom Relationship Matrices**  
@@ -134,7 +134,7 @@ For reproducing the results, refer to the accompanying `README` file and the `ma
 
 For details about the required file formats, please refer to:
 
-- The **[MPH Manual](https://jiang18.github.io/mph/)**, which provides comprehensive documentation on all input and output file structures.
+- The **[MPH Manual](https://jiang18.github.io/mph/options/)**, which provides comprehensive documentation on all input and output file structures.
 - The Palmer Lab TSCC directory at `/tscc/projects/ps-palmer/s3/data/genomic_sem`, which contains example files and datasets for genomic SEM analyses.
 
 These resources will provide all necessary guidance on preparing and using the required files for analysis.
@@ -142,7 +142,7 @@ These resources will provide all necessary guidance on preparing and using the r
 
 ### Acknowledgments
 
-Special thanks to **[Jicai Jiang](https://jiang18.github.io/)** for his invaluable guidance on using the **MPH framework** and providing the code constructing custom matrices.
+Special thanks to **[Jicai Jiang](https://cals.ncsu.edu/animal-science/people/jicai-jiang/)** for his invaluable guidance on using the **MPH framework** and providing the code constructing custom matrices.
 
 For more details, visit the **[MPH manual](https://jiang18.github.io/mph/)**.
 
