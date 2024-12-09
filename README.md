@@ -77,7 +77,7 @@ The whole analysis (for 3 cohorts) includes a few major steps:
 2. **Create Custom Matrices**  
    - Generate the six genomic matrices and the 3  residual matrices (shown above).  
    - Only 3 residual matrices are required because MPH automatically includes a diagonal matrix as the sixth one.  
-   - Use the provided R scripts for manipulating GRMs ([GRM Input/Output Scripts]([https://jiang18.github.io/mph/util/#grm-inputoutput](https://jiang18.github.io/mph/scripts/#grm-inputoutput))).  
+   - Use the provided R scripts for manipulating GRMs [GRM Scripts](https://jiang18.github.io/mph/scripts/#grm-inputoutput)
    - This step should be quick if the total number of rats across cohorts is around 10k.
 
 3. **List Custom Relationship Matrices**  
