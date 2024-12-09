@@ -2,6 +2,7 @@
 cohort_data <- read.csv("indicator_covariates.csv", stringsAsFactors = FALSE)
 
 # Read the matrix
+#####CHANGE TO MPH DIRECTORY TO READ IN THE AUXILLIARY SCRIPTS OR DOWNLOAD FROM HERE: https://jiang18.github.io/mph/scripts/
 source("/home/wolftech/jjiang26/projects/ans590/demo/mph_functs.R")
 matrix_data <- read_grm("gg")
 matrix_data = matrix_data + t(matrix_data)
