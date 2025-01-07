@@ -90,8 +90,52 @@ The whole analysis (for 3 cohorts) includes a few major steps:
 
 Detailed instructions to process and prepare files for MPH.
 
-#### 1. Fill Missing Genotypes (Optional)
-Filling missing genotypes is optional and has little impact on the overall analysis.
+
+#### 1. Prepare Phenotype and Covariate Files
+
+This step combines phenotype data from multiple files and prepares cohort-specific covariates.
+
+**Requirements:**  
+- **Phenotype Files Directory:** Directory containing individual phenotype files.  
+- **Cohort Mapping File:** Maps cohort numbers to phenotype files.  
+  - 📄 **Available here:** `/tscc/projects/ps-palmer/apurva/locomotor/mph/individual_projects_seq/pheno_cohort_project_dict.csv`  
+
+**Modify File Paths:**  
+Update these paths in the script:
+
+```r
+pheno_dir <- "/path/to/phenotype/files"
+pheno_cohort_file <- "/path/to/cohort_mapping.csv"
+output_pheno_file <- "/path/to/output/combined_phenotype.csv"
+output_cov_file <- "/path/to/output/indicator_covariates.csv"
+```
+
+**Covariate File Structure:**  
+The covariate file acts as an **incidence matrix**, where each cohort is represented as a column, and IDs indicate whether an individual belongs to a specific cohort.
+
+Example structure:
+
+```csv
+ID,cohort1,2,3,4,5,6
+A,1,0,0,0,0,0
+B,1,0,0,0,0,0
+C,0,1,0,0,0,0
+```
+
+- **ID:** Unique identifier for each sample.  
+- **cohortX:** Binary indicator (1 = belongs to cohort, 0 = does not belong).  
+
+**Run the Script:**  
+Save the script as `stack_pheno_create_cov.R` and execute it:
+
+```bash
+Rscript stack_pheno_create_cov.R
+```
+
+**Output Files:**  
+- `combined_phenotype.csv`: Combined phenotype data.  
+- `indicator_covariates.csv`: Cohort indicator covariates.
+
 
 #### 2. Make GRM (Genomic Relationship Matrix)
 Generate the GRM using the following commands:
