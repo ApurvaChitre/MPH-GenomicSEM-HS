@@ -138,6 +138,23 @@ Rscript stack_pheno_create_cov.R
 
 
 #### 2. Make GRM (Genomic Relationship Matrix)
+
+**📝 Note:** Ensure that the **RFIDs/Samples** overlap between the **genotype** and **phenotype** data. MPH will error out even if the genotype file contains additional samples not present in the phenotype data, even if there is overlap.
+
+### **Step 1: Extract IDs from the Covariate File**
+```bash
+cut -d',' -f1 /tscc/projects/ps-palmer/apurva/locomotor/mph/individual_projects_no_dups/indicator_covariates.csv | tail -n +2 > /tscc/projects/ps-palmer/apurva/locomotor/mph/genotypes/subset_ids.txt
+```
+
+### **Step 2: Subset Genotype Files**
+```bash
+plink --bfile /tscc/projects/ps-palmer/apurva/locomotor/individual_projects_no_dups/genotypes/genotypes \
+      --keep-fam /tscc/projects/ps-palmer/apurva/locomotor/mph/genotypes/subset_ids.txt \
+      --make-bed \
+      --out /tscc/projects/ps-palmer/apurva/locomotor/mph/genotypes/subset_genotypes
+```
+
+
 Generate the GRM using the following commands:
 
 ```bash
