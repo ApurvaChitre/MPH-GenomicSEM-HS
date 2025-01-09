@@ -159,7 +159,7 @@ plink --bfile /tscc/projects/ps-palmer/apurva/locomotor/individual_projects_no_d
 Generate the GRM using the following commands:
 
 ```bash
-perl -e 'print "SNP\n"; while(<>){@c=split /\s+/; print "$c[1]\n"}' < output_gen_hard_calls_subset_mph.qc.bim > snp_info.csv
+perl -e 'print "SNP\n"; while(<>){@c=split /\s+/; print "$c[1]\n"}' < /tscc/projects/ps-palmer/apurva/locomotor/mph/genotypes/subset_genotypes.bim > snp_info.csv
 ```
 
 Run the mph command to create the GRM:
