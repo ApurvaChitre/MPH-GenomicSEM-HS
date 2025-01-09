@@ -163,6 +163,7 @@ perl -e 'print "SNP\n"; while(<>){@c=split /\s+/; print "$c[1]\n"}' < /tscc/proj
 ```
 
 Run the mph command to create the GRM:
+**Note:** It is best to submit this as a **batch job** on the cluster since it is computationally intensive. See the example batch script: `grm_job.sh`.
 ```bash
 mph --make_grm --binary_genotype output_gen_hard_calls_subset_mph.qc --snp_info snp_info.csv --num_threads 14 --out gg
 ```
